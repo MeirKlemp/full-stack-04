@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 export default function Key({children, onClick}) {
   return (
-    <button onClick={onClick}>
+    <button onClick={e => onClick?.(children)}>
       {children}
     </button>
   );
