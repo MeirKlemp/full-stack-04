@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ControlKey, { ControlKeyTypes } from './ControlKey';
 import ComboKey from './ComboKey';
 
-export default function ControlKeyboard({
+export default function ControlsKeyboard({
   selectedKeyboard,
   keyboards,
   onBackspaceClick,
@@ -34,7 +34,7 @@ export default function ControlKeyboard({
   );
 }
 
-ControlKeyboard.propTypes = {
+ControlsKeyboard.propTypes = {
   selectedKeyboard: PropTypes.string.isRequired,
   keyboards: PropTypes.arrayOf(PropTypes.string).isRequired,
   onBackspaceClick: PropTypes.func,

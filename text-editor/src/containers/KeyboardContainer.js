@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ControlKeyboard from '../components/ControlKeyboard';
+import ControlsKeyboard from '../components/ControlsKeyboard';
 import EnglishQwertyKeyboardContainer from './EnglishQwertyKeyboardContainer';
 import HebrewKeyboard from '../components/HebrewKeyboard';
 import PhoneKeyboard from '../components/PhoneKeyboard';
@@ -33,7 +33,7 @@ export default class KeyboardContainer extends React.Component {
     return (
       <div style={{display: "flex"}}>
         {this.keyboards[this.state.keyboard]}
-        <ControlKeyboard
+        <ControlsKeyboard
           selectedKeyboard={this.state.keyboard}
           keyboards={Object.keys(this.keyboards)}
           onBackspaceClick={this.props.onBackspaceClick}
