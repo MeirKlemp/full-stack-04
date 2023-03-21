@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Key from './Key';
+import ControlKey, { ControlKeyTypes } from './ControlKey';
 
 const CHARS_TABLE = [
   ['ק', 'ר', 'א', 'ט', 'ו', 'ן', 'ם', 'פ'],
@@ -14,6 +15,12 @@ export default function HebrewKeyboard({ onInputClick }) {
   return (
     <div>
       {keyboard}
+      <div>
+        <ControlKey
+          type={ControlKeyTypes.space}
+          onClick={() => onInputClick(' ')}
+        />
+      </div>
     </div>
   );
 }

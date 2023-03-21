@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Key from './Key';
+import ControlKey, { ControlKeyTypes } from './ControlKey';
 import ShiftKey, { ShiftMode } from './ShiftKey';
 
 const CHARS_TABLE = [
@@ -32,9 +33,16 @@ export default function EnglishQwertyKeyboard({
         <ShiftKey shiftMode={shiftMode} onClick={onShiftClick} />
         {charsRow3}
       </div>
+      <div>
+        <ControlKey
+          type={ControlKeyTypes.space}
+          onClick={() => onInputClick(' ')}
+        />
+      </div>
     </div>
   );
 }
+
 
 EnglishQwertyKeyboard.propType = {
   shiftMode: PropTypes.number,

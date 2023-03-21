@@ -6,7 +6,7 @@ export default function ComboKey({ selected, options, onChange }) {
       value={selected}
       onChange={e => onChange?.(e.target.value)}
     >
-      {options.map(op => <option value={op}>{op}</option>)}
+      {options.map(op => <option key={op} value={op}>{op}</option>)}
     </select>
   );
 }
