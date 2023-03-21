@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import Key from './Key';
 import ShiftKey, { ShiftMode } from './ShiftKey';
-import BackspaceKey from './BackspaceKey';
 
 const CHARS_TABLE = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
@@ -13,7 +12,6 @@ export default function EnglishQwertyKeyboard({
   shiftMode = ShiftMode.normal,
   onInputClick,
   onShiftClick,
-  onBackspaceClick,
 }) {
   const capitalChar = ch => shiftMode === ShiftMode.normal ?
     ch.toLowerCase() : ch.toUpperCase();
@@ -33,7 +31,6 @@ export default function EnglishQwertyKeyboard({
       <div>
         <ShiftKey shiftMode={shiftMode} onClick={onShiftClick} />
         {charsRow3}
-        <BackspaceKey onClick={onBackspaceClick} />
       </div>
     </div>
   );
@@ -43,5 +40,4 @@ EnglishQwertyKeyboard.propType = {
   shiftMode: PropTypes.number,
   onInputClick: PropTypes.func,
   onShiftClick: PropTypes.func,
-  onBackspaceClick: PropTypes.func,
 };
