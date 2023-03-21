@@ -22,7 +22,6 @@ export default class EnglishQwertyKeyboardContainer extends React.Component {
           shiftMode={this.state.shiftMode}
           onInputClick={this.handleInputClick}
           onShiftClick={this.handleShiftClick}
-          onBackspaceClick={this.props.onBackspaceClick}
         />
       </>
     );
@@ -47,5 +46,4 @@ export default class EnglishQwertyKeyboardContainer extends React.Component {
 
 EnglishQwertyKeyboardContainer.propTypes = {
   onInputClick: PropTypes.func,
-  onBackspaceClick: PropTypes.func,
 };

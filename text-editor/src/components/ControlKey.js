@@ -4,12 +4,14 @@ export const ControlKeyTypes = {
   backspace: 0,
   enter: 1,
   space: 2,
+  slideLeft: 3,
+  slideRight: 4,
 }
 
-export default function ControlKey({ type, onClick }) {
+export default function ControlKey({ type, onClick, enabled = true }) {
   return (
-    <button onClick={e => onClick?.()}>
-      {["Backspace", "Enter", "Space"][type]}
+    <button onClick={e => onClick?.()} disabled={!enabled}>
+      {["Backspace", "Enter", "Space", "<-", "->"][type]}
     </button>
   );
 }
@@ -17,4 +19,5 @@ export default function ControlKey({ type, onClick }) {
 ControlKey.propTypes = {
   type: PropTypes.number.isRequired,
   onClick: PropTypes.func,
+  enabled: PropTypes.bool,
 };

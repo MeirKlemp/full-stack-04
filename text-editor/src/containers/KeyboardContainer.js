@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ControlsKeyboard from '../components/ControlsKeyboard';
 import EnglishQwertyKeyboardContainer from './EnglishQwertyKeyboardContainer';
+import SymbolsKeyboardContainer from './SymbolsKeyboardContainer';
+import EmojisKeyboardContainer from './EmojisKeyboardContainer';
 import HebrewKeyboard from '../components/HebrewKeyboard';
 import PhoneKeyboard from '../components/PhoneKeyboard';
 
@@ -28,8 +30,15 @@ export default class KeyboardContainer extends React.Component {
       "01": <PhoneKeyboard
               onInputClick={this.props.onInputClick}
             />,
+      "#+": <SymbolsKeyboardContainer
+              onInputClick={this.props.onInputClick}
+            />,
+      "😀": <EmojisKeyboardContainer
+              onInputClick={this.props.onInputClick}
+            />,
     };
 
+    // TODO: Remove these DOM elements by creating presentational component.
     return (
       <div style={{display: "flex"}}>
         {this.keyboards[this.state.keyboard]}
