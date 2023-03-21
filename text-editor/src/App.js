@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import EnglishQwertyKeyboardContainer from
   './containers/EnglishQwertyKeyboardContainer';
+import HebrewKeyboard from './components/HebrewKeyboard';
+import PhoneKeyboard from './components/PhoneKeyboard';
 import ControlKeyboard from './components/ControlKeyboard';
 
 const KEYBOARDS = ["EN", "HE", "01"]
@@ -20,6 +22,16 @@ export default function App() {
       <div style={{display: "flex"}}>
         { keyboard === "EN" &&
           <EnglishQwertyKeyboardContainer
+            onInputClick={ch => setInput(input + ch)}
+          />
+        }
+        { keyboard === "HE" &&
+          <HebrewKeyboard
+            onInputClick={ch => setInput(input + ch)}
+          />
+        }
+        { keyboard === "01" &&
+          <PhoneKeyboard
             onInputClick={ch => setInput(input + ch)}
           />
         }
