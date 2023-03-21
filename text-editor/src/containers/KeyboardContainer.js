@@ -45,9 +45,14 @@ export default class KeyboardContainer extends React.Component {
         <ControlsKeyboard
           selectedKeyboard={this.state.keyboard}
           keyboards={Object.keys(this.keyboards)}
-          onBackspaceClick={this.props.onBackspaceClick}
-          onEnterClick={this.props.onEnterClick}
           onChangeKeyboard={this.handleChangeKeyboard}
+          onBackspaceClick={this.props.onBackspaceClick}
+          onClearClick={this.props.onClearClick}
+          onEnterClick={this.props.onEnterClick}
+          onUndoClick={this.props.onUndoClick}
+          onRedoClick={this.props.onRedoClick}
+          undoEnabled={this.props.undoEnabled}
+          redoEnabled={this.props.redoEnabled}
         />
       </div>
     );
@@ -62,5 +67,10 @@ export default class KeyboardContainer extends React.Component {
 KeyboardContainer.propTypes = {
   onInputClick: PropTypes.func,
   onBackspaceClick: PropTypes.func,
+  onClearClick: PropTypes.func,
   onEnterClick: PropTypes.func,
+  onUndoClick: PropTypes.func,
+  onRedoClick: PropTypes.func,
+  undoEnabled: PropTypes.bool,
+  redoEnabled: PropTypes.bool,
 }

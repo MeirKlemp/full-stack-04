@@ -6,12 +6,26 @@ export const ControlKeyTypes = {
   space: 2,
   slideLeft: 3,
   slideRight: 4,
+  clear: 5,
+  undo: 6,
+  redo: 7,
 }
+
+const TypesContent = [
+  "Backspace",
+  "Enter",
+  "Space",
+  "<-",
+  "->",
+  "Clear",
+  "Undo",
+  "Redo",
+];
 
 export default function ControlKey({ type, onClick, enabled = true }) {
   return (
     <button onClick={e => onClick?.()} disabled={!enabled}>
-      {["Backspace", "Enter", "Space", "<-", "->"][type]}
+      {TypesContent[type]}
     </button>
   );
 }

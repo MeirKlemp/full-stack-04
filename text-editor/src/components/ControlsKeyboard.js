@@ -5,9 +5,14 @@ import ComboKey from './ComboKey';
 export default function ControlsKeyboard({
   selectedKeyboard,
   keyboards,
-  onBackspaceClick,
-  onEnterClick,
   onChangeKeyboard,
+  onBackspaceClick,
+  onClearClick,
+  onEnterClick,
+  onUndoClick,
+  onRedoClick,
+  undoEnabled,
+  redoEnabled,
 }) {
   return (
     <div>
@@ -16,11 +21,20 @@ export default function ControlsKeyboard({
           type={ControlKeyTypes.backspace}
           onClick={onBackspaceClick}
         />
+        <ControlKey
+          type={ControlKeyTypes.clear}
+          onClick={onClearClick}
+        />
       </div>
       <div>
         <ControlKey
           type={ControlKeyTypes.enter}
           onClick={onEnterClick}
+        />
+        <ControlKey
+          type={ControlKeyTypes.undo}
+          onClick={onUndoClick}
+          enabled={undoEnabled}
         />
       </div>
       <div>
@@ -28,6 +42,11 @@ export default function ControlsKeyboard({
           selected={selectedKeyboard}
           options={keyboards}
           onChange={onChangeKeyboard}
+        />
+        <ControlKey
+          type={ControlKeyTypes.redo}
+          onClick={onRedoClick}
+          enabled={redoEnabled}
         />
       </div>
     </div>
@@ -37,7 +56,12 @@ export default function ControlsKeyboard({
 ControlsKeyboard.propTypes = {
   selectedKeyboard: PropTypes.string.isRequired,
   keyboards: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onBackspaceClick: PropTypes.func,
-  onEnterClick: PropTypes.func,
   onChangeKeyboard: PropTypes.func,
+  onBackspaceClick: PropTypes.func,
+  onClearClick: PropTypes.func,
+  onEnterClick: PropTypes.func,
+  onUndoClick: PropTypes.func,
+  onRedoClick: PropTypes.func,
+  undoEnabled: PropTypes.bool,
+  redoEnabled: PropTypes.bool,
 }
