@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ControlsKeyboard from '../components/keyboards/ControlsKeyboard';
+import Keyboard from '../components/keyboards/Keyboard';
 import EnglishQwertyKeyboardContainer from './EnglishQwertyKeyboardContainer';
 import SymbolsKeyboard from '../components/keyboards/SymbolsKeyboard';
 import EmojisKeyboard from '../components/keyboards/EmojisKeyboard';
@@ -38,24 +38,19 @@ export default class KeyboardContainer extends React.Component {
             />,
     };
 
-    // TODO: Remove these DOM elements by creating presentational component.
-    return (
-      <div style={{display: "flex"}}>
-        {this.keyboards[this.state.keyboard]}
-        <ControlsKeyboard
-          selectedKeyboard={this.state.keyboard}
-          keyboards={Object.keys(this.keyboards)}
-          onChangeKeyboard={this.handleChangeKeyboard}
-          onBackspaceClick={this.props.onBackspaceClick}
-          onClearClick={this.props.onClearClick}
-          onEnterClick={this.props.onEnterClick}
-          onUndoClick={this.props.onUndoClick}
-          onRedoClick={this.props.onRedoClick}
-          undoEnabled={this.props.undoEnabled}
-          redoEnabled={this.props.redoEnabled}
-        />
-      </div>
-    );
+    return <Keyboard
+             keyboardElement={this.keyboards[this.state.keyboard]}
+             keyboard={this.state.keyboard}
+             keyboards={Object.keys(this.keyboards)}
+             onChangeKeyboard={this.handleChangeKeyboard}
+             onBackspaceClick={this.props.onBackspaceClick}
+             onClearClick={this.props.onClearClick}
+             onEnterClick={this.props.onEnterClick}
+             onUndoClick={this.props.onUndoClick}
+             onRedoClick={this.props.onRedoClick}
+             undoEnabled={this.props.undoEnabled}
+             redoEnabled={this.props.redoEnabled}
+           />;
   }
 
   handleChangeKeyboard(kb) {
