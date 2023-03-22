@@ -1,6 +1,7 @@
 import React from 'react';
 import TextDisplayer from './components/TextDisplayer';
 import KeyboardContainer from './containers/KeyboardContainer';
+import TextDesignToolbar from './components/TextDesignToolbar';
 import Text from './models/Text';
 
 const MAX_TEXTS = 100;
@@ -21,9 +22,9 @@ export default class TextEditor extends React.Component {
     return (
       <>
         <TextDisplayer text={text} />
-        color: <input type="text"
-          value={text.style.color}
-          onChange={e => this.handleStyleChange({color: e.target.value})}
+        <TextDesignToolbar
+          style={text.style}
+          onChange={style => this.handleStyleChange(style)}
         />
         <KeyboardContainer
           onInputClick={ch => this.handleTextChange(text.append(ch))}
