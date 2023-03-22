@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ControlsKeyboard from '../components/ControlsKeyboard';
 import EnglishQwertyKeyboardContainer from './EnglishQwertyKeyboardContainer';
-import SymbolsKeyboardContainer from './SymbolsKeyboardContainer';
-import EmojisKeyboardContainer from './EmojisKeyboardContainer';
+import SymbolsKeyboard from '../components/SymbolsKeyboard';
+import EmojisKeyboard from '../components/EmojisKeyboard';
 import HebrewKeyboard from '../components/HebrewKeyboard';
 import PhoneKeyboard from '../components/PhoneKeyboard';
 
@@ -30,10 +30,10 @@ export default class KeyboardContainer extends React.Component {
       "01": <PhoneKeyboard
               onInputClick={this.props.onInputClick}
             />,
-      "#+": <SymbolsKeyboardContainer
+      "#+": <SymbolsKeyboard
               onInputClick={this.props.onInputClick}
             />,
-      "😀": <EmojisKeyboardContainer
+      "😀": <EmojisKeyboard
               onInputClick={this.props.onInputClick}
             />,
     };

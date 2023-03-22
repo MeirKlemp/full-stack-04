@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import EmojisKeyboard from '../components/EmojisKeyboard';
+import SlideKeyboard from '../components/SlideKeyboard';
 
-export default class EmojisKeyboardContainer extends React.Component {
+export default class SlideKeyboardContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -16,10 +16,12 @@ export default class EmojisKeyboardContainer extends React.Component {
   render() {
     return (
       <>
-        <EmojisKeyboard
-          tableNum={this.state.tableNum}
+        <SlideKeyboard
+          table={this.props.tables[this.state.tableNum]}
           onInputClick={this.props.onInputClick}
           onSlide={this.handleSlide}
+          canSlideLeft={this.state.tableNum > 0}
+          canSlideRight={this.state.tableNum < this.props.tables.length - 1}
         />
       </>
     );
@@ -33,6 +35,11 @@ export default class EmojisKeyboardContainer extends React.Component {
   }
 }
 
-EmojisKeyboardContainer.propTypes = {
+SlideKeyboardContainer.propTypes = {
+  tables: PropTypes.arrayOf(
+    PropTypes.arrayOf(
+      PropTypes.arrayOf(
+        PropTypes.string
+  ))).isRequired,
   onInputClick: PropTypes.func,
 };
