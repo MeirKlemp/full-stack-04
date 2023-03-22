@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import ControlKey, { ControlKeyTypes } from './ControlKey';
-import ComboKey from './ComboKey';
+import ControlKey, { ControlKeyTypes } from '../keys/ControlKey';
+import ComboKey from '../keys/ComboKey';
 
 export default function ControlsKeyboard({
   selectedKeyboard,

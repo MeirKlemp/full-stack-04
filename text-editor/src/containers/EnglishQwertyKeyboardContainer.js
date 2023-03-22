@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import EnglishQwertyKeyboard from '../components/EnglishQwertyKeyboard';
-import { ShiftMode } from '../components/ShiftKey';
+import EnglishQwertyKeyboard from
+  '../components/keyboards/EnglishQwertyKeyboard';
+import { ShiftMode } from '../components/keys/ShiftKey';
 
 export default class EnglishQwertyKeyboardContainer extends React.Component {
   constructor(props) {

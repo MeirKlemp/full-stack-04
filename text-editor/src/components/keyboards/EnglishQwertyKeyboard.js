@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import Key from './Key';
-import ControlKey, { ControlKeyTypes } from './ControlKey';
-import ShiftKey, { ShiftMode } from './ShiftKey';
+import Key from '../keys/Key';
+import ControlKey, { ControlKeyTypes } from '../keys/ControlKey';
+import ShiftKey, { ShiftMode } from '../keys/ShiftKey';
 
 const CHARS_TABLE = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],

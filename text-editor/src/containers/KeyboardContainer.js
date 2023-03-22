@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ControlsKeyboard from '../components/ControlsKeyboard';
+import ControlsKeyboard from '../components/keyboards/ControlsKeyboard';
 import EnglishQwertyKeyboardContainer from './EnglishQwertyKeyboardContainer';
-import SymbolsKeyboard from '../components/SymbolsKeyboard';
-import EmojisKeyboard from '../components/EmojisKeyboard';
-import HebrewKeyboard from '../components/HebrewKeyboard';
-import PhoneKeyboard from '../components/PhoneKeyboard';
+import SymbolsKeyboard from '../components/keyboards/SymbolsKeyboard';
+import EmojisKeyboard from '../components/keyboards/EmojisKeyboard';
+import HebrewKeyboard from '../components/keyboards/HebrewKeyboard';
+import PhoneKeyboard from '../components/keyboards/PhoneKeyboard';
 
 export default class KeyboardContainer extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SlideKeyboard from '../components/SlideKeyboard';
+import SlideKeyboard from '../components/keyboards/SlideKeyboard';
 
 export default class SlideKeyboardContainer extends React.Component {
   constructor(props) {
