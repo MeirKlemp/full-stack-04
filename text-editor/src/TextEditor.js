@@ -11,7 +11,7 @@ export default class TextEditor extends React.Component {
     super(props);
 
     this.state = {
-      texts: [new Text('', {color: 'black'})],
+      texts: [new Text({color: 'black'})],
       currentText: 0,
     };
   }
@@ -19,6 +19,9 @@ export default class TextEditor extends React.Component {
   render() {
     const text = this.state.texts[this.state.currentText];
     console.log(this.state);
+    const objects = this.objects;
+    console.log(objects);
+    console.log(objects.length);
     return (
       <>
         <TextDisplayer text={text} />
@@ -66,12 +69,34 @@ export default class TextEditor extends React.Component {
     const texts = this.state.texts
     const newTexts = [
       ...texts.slice(0, currentText),
-      texts[currentText].changeStyle(newStyle),
+      texts[currentText].withStyle(newStyle),
       ...texts.slice(currentText + 1),
     ];
     this.setState({
       texts: newTexts,
     });
+  }
+
+  get objects() {
+    // Debug
+    const result = [];
+    const push = (obj) => {
+      if (result.indexOf(obj) === -1) {
+        result.push(obj);
+      }
+    };
+    for (const text of this.state.texts) {
+      push(text.lines);
+      for (const line of text.lines) {
+        push(line);
+        for (const section of line) {
+          push(section);
+          push(section.text);
+          push(section.style);
+        }
+      }
+    }
+    return result;
   }
 }
 

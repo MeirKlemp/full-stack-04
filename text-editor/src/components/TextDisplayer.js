@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import Text from '../models/Text';
 
 export default function TextDisplayer({ text }) {
-  // TODO: Move this complication into Text.
-  const spans = text.sections.flatMap((section, i) =>
-    section.text.split('\n').map((t, j, arr) =>
-      <React.Fragment key={`${i},${j}`} >
-        <span style={section.style}>{t}</span>
-        {(j < arr.length - 1 || t === '') && <br/>}
-      </React.Fragment>
-  ));
+  const spans = text.lines.map(
+    (line, i) => [
+      ...line.map((ts, j) =>
+        <span key={`${i},${j}`} style={ts.style}>
+          {ts.text}
+        </span>),
+      <br key={i}/>
+    ]
+  );
   return (
     <div>
       {spans}
