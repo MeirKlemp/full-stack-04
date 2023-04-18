@@ -39,6 +39,46 @@ export default function TextDesignToolbar({
         onClick={e => handleFontSizeChange(parseInt(style.fontSize) + 1)}>
         +
       </button>
+      <select value={style.fontFamily}
+          onChange={e => handleChange({fontFamily: e.target.value})}>
+        <option value="arial">Arial</option>
+        <option value="Helvetica">Helvetica</option>
+        <option value="verdana">Verdana</option>
+        <option value="tahoma">Tahoma</option>
+        <option value="trebuchet">Trebuchet</option>
+        <option value="times">Times</option>
+        <option value="georgia">Georgia</option>
+        <option value="garamond">Garamond</option>
+        <option value="courier">Courier</option>
+        <option value="brush">Brush</option>
+      </select>
+      <div className="checkbox-button bold-checkbox">
+        <label>
+          <input type="checkbox"
+              checked={style.fontWeight == "bold"}
+              onChange={e => handleChange(
+                {fontWeight: e.target.checked ? "bold" : "normal"})}/>
+          <span>B</span>
+        </label>
+      </div>
+      <div className="checkbox-button italic-checkbox">
+        <label>
+          <input type="checkbox"
+              checked={style.fontStyle == "italic"}
+              onChange={e => handleChange(
+                {fontStyle: e.target.checked ? "italic" : "normal"})}/>
+          <span>I</span>
+        </label>
+      </div>
+      <div className="checkbox-button underline-checkbox">
+        <label>
+          <input type="checkbox"
+              checked={style.textDecoration == "underline"}
+              onChange={e => handleChange(
+                {textDecoration: e.target.checked ? "underline" : null})}/>
+          <span>U</span>
+        </label>
+      </div>
     </div>
   );
 }

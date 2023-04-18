@@ -13,6 +13,7 @@ export default class TextEditor extends React.Component {
     const style = {
       color: 'black',
       fontSize: 11,
+      fontFamily: "arial",
     };
 
     this.state = {
