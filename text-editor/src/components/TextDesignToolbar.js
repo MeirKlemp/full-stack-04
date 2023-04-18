@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 export default function TextDesignToolbar({
   style,
   onChange,
+  minFontSize = 1,
+  maxFontSize = 400,
 }) {
   const handleChange = newStyle => onChange({...style, ...newStyle});
   const handleFontSizeChange = value => {
     if (isNaN(value)) return;
-    const boundedValue = Math.max(1, Math.min(400, value));
+    const boundedValue = Math.max(minFontSize, Math.min(maxFontSize, value));
     handleChange({fontSize: boundedValue});
   };
 
@@ -44,4 +46,6 @@ export default function TextDesignToolbar({
 TextDesignToolbar.propTypes = {
   style: PropTypes.object,
   onChange: PropTypes.func,
+  minFontSize: PropTypes.number,
+  maxFontSize: PropTypes.number,
 };
