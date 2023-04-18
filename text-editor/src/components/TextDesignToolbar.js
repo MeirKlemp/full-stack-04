@@ -4,6 +4,13 @@ export default function TextDesignToolbar({
   style,
   onChange,
 }) {
+  const handleChange = newStyle => onChange({...style, ...newStyle});
+  const handleFontSizeChange = value => {
+    if (isNaN(value)) return;
+    const boundedValue = Math.max(1, Math.min(400, value));
+    handleChange({fontSize: boundedValue});
+  };
+
   return (
     <div style={{display: "flex"}}>
       <div style={{
@@ -16,8 +23,20 @@ export default function TextDesignToolbar({
       <input type="text"
         placeholder="Text Color"
         value={style.color}
-        onChange={e => onChange({...style, color: e.target.value})}
+        onChange={e => handleChange({color: e.target.value})}
       />
+      <button
+        onClick={e => handleFontSizeChange(parseInt(style.fontSize) - 1)}>
+        -
+      </button>
+      <input type="text"
+        value={style.fontSize}
+        onChange={e => handleFontSizeChange(parseInt(e.target.value))}
+      />
+      <button
+        onClick={e => handleFontSizeChange(parseInt(style.fontSize) + 1)}>
+        +
+      </button>
     </div>
   );
 }

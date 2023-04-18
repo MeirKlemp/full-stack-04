@@ -10,8 +10,13 @@ export default class TextEditor extends React.Component {
   constructor(props) {
     super(props);
 
+    const style = {
+      color: 'black',
+      fontSize: 11,
+    };
+
     this.state = {
-      texts: [new Text({color: 'black'})],
+      texts: [new Text(style)],
       currentText: 0,
     };
   }
