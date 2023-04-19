@@ -1,0 +1,42 @@
+
+.color-input {
+  display: flex;
+  cursor: pointer;
+}
+
+.color-input-color {
+  border: 1px solid black;
+  border-right: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  min-width: 20px;
+  min-height: 1em;
+}
+
+.color-input-input {
+  border: 1px solid;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  outline: none;
+}
+
+/* highlight border on focus (not working)
+
+.color-input-input:focus {
+  border-top-color: rgb(81, 203, 238);
+  border-right-color: rgb(81, 203, 238);
+  border-bottom-color: rgb(81, 203, 238);
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+}
+
+.color-input .color-input-input:focus + .color-input-color {
+  border-top-color: rgb(81, 203, 238);
+  border-left-color: rgb(81, 203, 238);
+  border-bottom-color: rgb(81, 203, 238);
+  border-top-width: 2px;
+  border-left-width: 2px;
+  border-bottom-width: 2px;
+}
+*/

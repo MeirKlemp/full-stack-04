@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import ColorInput from './common/ColorInput';
 
 export default function TextDesignToolbar({
   style,
@@ -6,7 +7,7 @@ export default function TextDesignToolbar({
   minFontSize = 1,
   maxFontSize = 400,
 }) {
-  const handleChange = newStyle => onChange({...style, ...newStyle});
+  const handleChange = newStyle => onChange?.({...style, ...newStyle});
   const handleFontSizeChange = value => {
     if (isNaN(value)) return;
     const boundedValue = Math.max(minFontSize, Math.min(maxFontSize, value));
@@ -15,17 +16,9 @@ export default function TextDesignToolbar({
 
   return (
     <div style={{display: "flex"}}>
-      <div style={{
-        backgroundColor: style.color,
-        border: "3px solid black",
-        minWidth: "1em",
-        minHeight: "1em",
-        margin: "2px",
-      }}></div>
-      <input type="text"
+      <ColorInput value={style.color}
+        onChange={color => handleChange({color: color})}
         placeholder="Text Color"
-        value={style.color}
-        onChange={e => handleChange({color: e.target.value})}
       />
       <button
         onClick={e => handleFontSizeChange(parseInt(style.fontSize) - 1)}>
@@ -55,7 +48,7 @@ export default function TextDesignToolbar({
       <div className="checkbox-button bold-checkbox">
         <label>
           <input type="checkbox"
-              checked={style.fontWeight == "bold"}
+              checked={style.fontWeight === "bold"}
               onChange={e => handleChange(
                 {fontWeight: e.target.checked ? "bold" : "normal"})}/>
           <span>B</span>
@@ -64,7 +57,7 @@ export default function TextDesignToolbar({
       <div className="checkbox-button italic-checkbox">
         <label>
           <input type="checkbox"
-              checked={style.fontStyle == "italic"}
+              checked={style.fontStyle === "italic"}
               onChange={e => handleChange(
                 {fontStyle: e.target.checked ? "italic" : "normal"})}/>
           <span>I</span>
@@ -73,7 +66,7 @@ export default function TextDesignToolbar({
       <div className="checkbox-button underline-checkbox">
         <label>
           <input type="checkbox"
-              checked={style.textDecoration == "underline"}
+              checked={style.textDecoration === "underline"}
               onChange={e => handleChange(
                 {textDecoration: e.target.checked ? "underline" : null})}/>
           <span>U</span>
