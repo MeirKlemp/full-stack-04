@@ -1,0 +1,12 @@
+
+.keyboard {
+  display: flex;
+}
+
+.controls-keyboard {
+  width: 30%;
+}
+
+.input-keyboard {
+  margin: auto;
+}

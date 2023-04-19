@@ -22,7 +22,7 @@ export default function EnglishQwertyKeyboard({
   const charsRow2 = CHARS_TABLE[1].map(charToKey);
   const charsRow3 = CHARS_TABLE[2].map(charToKey);
   return (
-    <div>
+    <div className="input-keyboard">
       <div>
         {charsRow1}
       </div>

@@ -17,7 +17,7 @@ export default function ControlsKeyboard({
   redoEnabled,
 }) {
   return (
-    <div>
+    <div className="controls-keyboard">
       <div>
         <ControlKey
           type={ControlKeyTypes.backspace}

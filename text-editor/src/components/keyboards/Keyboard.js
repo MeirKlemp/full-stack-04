@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import ControlsKeyboard from './ControlsKeyboard';
+import './Keyboard.css';
 
 export default function Keyboard({
   keyboardElement,
@@ -17,7 +18,7 @@ export default function Keyboard({
   redoEnabled,
 }) {
     return (
-      <div style={{display: "flex"}}>
+      <div className="keyboard">
         {keyboardElement}
         <ControlsKeyboard
           selectedKeyboard={keyboard}

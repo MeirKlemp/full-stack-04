@@ -13,7 +13,7 @@ export default function PhoneKeyboard({ onInputClick }) {
   const keyboard = CHARS_TABLE.map(
     row => <div key={row[0]}>{row.map(charToKey)}</div>);
   return (
-    <div>
+    <div className="input-keyboard">
       {keyboard}
     </div>
   );

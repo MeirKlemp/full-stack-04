@@ -1,4 +1,5 @@
 import React from 'react';
+import InputSection from './components/InputSection';
 import TextDisplayer from './components/TextDisplayer';
 import KeyboardContainer from './containers/KeyboardContainer';
 import TextDesignToolbar from './components/TextDesignToolbar';
@@ -31,11 +32,9 @@ export default class TextEditor extends React.Component {
     return (
       <>
         <TextDisplayer text={text} />
-        <TextDesignToolbar
+        <InputSection
           style={text.style}
-          onChange={style => this.handleStyleChange(style)}
-        />
-        <KeyboardContainer
+          onStyleChange={style => this.handleStyleChange(style)}
           onInputClick={ch => this.handleTextChange(text.append(ch))}
           onBackspaceClick={() => this.handleTextChange(text.slice(0, -1))}
           onClearClick={() => this.handleTextChange(text.cleared)}

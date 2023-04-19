@@ -17,7 +17,7 @@ export default function SlideKeyboard({
     .map((row, i) => <div key={i}>{row.map(charToKey)}</div>);
   const lastRow = chars.slice(columns * (rows - 1)).map(charToKey);
   return (
-    <div>
+    <div className="input-keyboard">
       {rowsExceptLast}
       <div>
         <ControlKey
