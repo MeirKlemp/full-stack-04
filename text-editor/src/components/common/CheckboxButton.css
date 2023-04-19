@@ -1,0 +1,28 @@
+
+.checkbox-button {
+  border: 1px solid #8f8f9d;
+  border-radius: 0.2em;
+  overflow: hidden;
+  background-color: rgb(233, 233, 237);
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.checkbox-button:hover {
+  background-color: rgb(208, 208, 215);
+}
+
+.checkbox-button span {
+  text-align: center;
+  display: block;
+  user-select: none;
+}
+
+.checkbox-button input {
+  position: absolute;
+  display: none;
+}
+
+.checkbox-button input:checked + span {
+  background-color: #007bff;
+}

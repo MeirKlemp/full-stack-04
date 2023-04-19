@@ -1,0 +1,31 @@
+
+.integer-input {
+  display: flex;
+}
+
+.integer-input input {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  border: 1px solid #8f8f9d;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+.integer-input button {
+  border: 1px solid #8f8f9d;
+  font-size: inherit;
+}
+
+.integer-input .integer-input-left-button {
+  border-right: none;
+  border-top-left-radius: 0.2em;
+  border-bottom-left-radius: 0.2em;
+}
+
+.integer-input .integer-input-right-button {
+  border: 1px solid #8f8f9d;
+  border-left: none;
+  border-top-right-radius: 0.2em;
+  border-bottom-right-radius: 0.2em;
+}
