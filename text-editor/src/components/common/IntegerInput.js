@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
+import './IntegerInput.css';
 
 export default function IntegerInput({
   value,
   onChange,
   minValue,
   maxValue,
+  className,
 }) {
   const integerValue = parseInt(value);
   const handleChange = value => {
@@ -19,17 +21,17 @@ export default function IntegerInput({
     onChange?.(boundedValue);
   };
   return (
-    <div style={{display: "flex"}}>
-      <button onClick={e => handleChange(integerValue - 1)}>
-        -
-      </button>
+    <div className={`integer-input ${className}`}>
+      <button className="integer-input-left-button"
+        onClick={e => handleChange(integerValue - 1)}
+      >-</button>
       <input type="text"
         value={value}
         onChange={e => handleChange(parseInt(e.target.value))}
       />
-      <button onClick={e => handleChange(integerValue + 1)}>
-        +
-      </button>
+      <button className="integer-input-right-button"
+        onClick={e => handleChange(integerValue + 1)}
+      >+</button>
     </div>
   );
 }
@@ -39,4 +41,5 @@ IntegerInput.propTypes = {
   onChange: PropTypes.func,
   minValue: PropTypes.number,
   maxValue: PropTypes.number,
+  className: PropTypes.string,
 };

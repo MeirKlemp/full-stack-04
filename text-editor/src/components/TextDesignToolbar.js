@@ -18,7 +18,7 @@ export default function TextDesignToolbar({
         onChange={color => handleChange({color: color})}
         placeholder="Text Color"
       />
-      <IntegerInput
+      <IntegerInput className="font-size-input"
         value={style.fontSize}
         onChange={value => handleChange({fontSize: value})}
         minValue={minFontSize}

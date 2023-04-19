@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './CheckboxButton.css';
 
 export default function CheckboxButton({
   checked,
@@ -7,14 +8,12 @@ export default function CheckboxButton({
   children,
 }) {
   return (
-    <div className={`checkbox-button ${className}`}>
-      <label>
-        <input type="checkbox"
-            checked={!!checked}
-            onChange={e => onChange?.(e.target.checked)}/>
-        <span>{children}</span>
-      </label>
-    </div>
+    <label className={`checkbox-button ${className}`}>
+      <input type="checkbox"
+          checked={!!checked}
+          onChange={e => onChange?.(e.target.checked)}/>
+      <span>{children}</span>
+    </label>
   );
 }
 
