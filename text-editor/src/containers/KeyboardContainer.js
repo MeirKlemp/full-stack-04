@@ -46,6 +46,8 @@ export default class KeyboardContainer extends React.Component {
              onBackspaceClick={this.props.onBackspaceClick}
              onClearClick={this.props.onClearClick}
              onEnterClick={this.props.onEnterClick}
+             onUpperClick={this.props.onUpperClick}
+             onLowerClick={this.props.onLowerClick}
              onUndoClick={this.props.onUndoClick}
              onRedoClick={this.props.onRedoClick}
              undoEnabled={this.props.undoEnabled}
@@ -64,6 +66,8 @@ KeyboardContainer.propTypes = {
   onBackspaceClick: PropTypes.func,
   onClearClick: PropTypes.func,
   onEnterClick: PropTypes.func,
+  onUpperClick: PropTypes.func,
+  onLowerClick: PropTypes.func,
   onUndoClick: PropTypes.func,
   onRedoClick: PropTypes.func,
   undoEnabled: PropTypes.bool,

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import './Keys.css';
 
 export default function Key({children, onClick}) {
   return (
-    <button onClick={e => onClick?.(children)}>
+    <button className="key" onClick={e => onClick?.(children)}>
       {children}
     </button>
   );

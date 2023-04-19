@@ -40,6 +40,8 @@ export default class TextEditor extends React.Component {
           onBackspaceClick={() => this.handleTextChange(text.slice(0, -1))}
           onClearClick={() => this.handleTextChange(text.cleared)}
           onEnterClick={() => this.handleTextChange(text.append('\n'))}
+          onUpperClick={() => this.handleTextChange(text.mapChars(ch => ch.toUpperCase()))}
+          onLowerClick={() => this.handleTextChange(text.mapChars(ch => ch.toLowerCase()))}
           onUndoClick={() =>
             this.setState({currentText: this.state.currentText - 1})}
           onRedoClick={() =>

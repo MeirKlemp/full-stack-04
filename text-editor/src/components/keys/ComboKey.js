@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import './Keys.css';
 
 export default function ComboKey({ selected, options, onChange }) {
   return (
-    <select
+    <select className="combo-key"
       value={selected}
       onChange={e => onChange?.(e.target.value)}
     >

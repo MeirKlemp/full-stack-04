@@ -9,6 +9,8 @@ export default function Keyboard({
   onBackspaceClick,
   onClearClick,
   onEnterClick,
+  onUpperClick,
+  onLowerClick,
   onUndoClick,
   onRedoClick,
   undoEnabled,
@@ -24,6 +26,8 @@ export default function Keyboard({
           onBackspaceClick={onBackspaceClick}
           onClearClick={onClearClick}
           onEnterClick={onEnterClick}
+          onUpperClick={onUpperClick}
+          onLowerClick={onLowerClick}
           onUndoClick={onUndoClick}
           onRedoClick={onRedoClick}
           undoEnabled={undoEnabled}
@@ -41,6 +45,8 @@ Keyboard.propTypes = {
   onBackspaceClick: PropTypes.func,
   onClearClick: PropTypes.func,
   onEnterClick: PropTypes.func,
+  onUpperClick: PropTypes.func,
+  onLowerClick: PropTypes.func,
   onUndoClick: PropTypes.func,
   onRedoClick: PropTypes.func,
   undoEnabled: PropTypes.bool,

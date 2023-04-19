@@ -43,8 +43,11 @@ export default class Text {
     const lastLine = this.#lastLine;
     const lastSection = lastLine[lastLine.length - 1];
 
-    const [startLine, startSection, startOffset] =
-      this.#findSection(start) ?? [0, 0, 0];
+    const startLocation = this.#findSection(start);
+    // If start index is greater than the length, then return an empty text.
+    if (!startLocation) return new Text(this.style);
+
+    const [startLine, startSection, startOffset] = startLocation;
     const [endLine, endSection, endOffset] = this.#findSection(end) ??
       [this.lines.length - 1, lastLine.length - 1, lastSection.text.length];
 
@@ -108,6 +111,18 @@ export default class Text {
       ...this.lines.slice(0, -1),
       newLastLine
     ];
+    return Text.#withLines(newLines);
+  }
+
+  mapChars(f) {
+    const newLines = this.lines.map(
+      line => line.map(
+        section => new TextSection(
+          Array.prototype.map.call(section.text, f).join(''),
+          section.style
+        )
+      )
+    );
     return Text.#withLines(newLines);
   }
 

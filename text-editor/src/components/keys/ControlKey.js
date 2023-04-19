@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './Keys.css';
 
 export const ControlKeyTypes = {
   backspace: 0,
@@ -9,23 +10,30 @@ export const ControlKeyTypes = {
   clear: 5,
   undo: 6,
   redo: 7,
+  upperAll: 8,
+  lowerAll: 9,
 }
 
 const TypesContent = [
-  "Backspace",
-  "Enter",
-  "Space",
-  "<-",
-  "->",
-  "Clear",
-  "Undo",
-  "Redo",
+  "backspace-key",
+  "enter-key",
+  "space-key",
+  "slide-left-key",
+  "slide-right-key",
+  "clear-key",
+  "undo-key",
+  "redo-key",
+  "upper-all-key",
+  "lower-all-key",
 ];
 
 export default function ControlKey({ type, onClick, enabled = true }) {
   return (
-    <button onClick={e => onClick?.()} disabled={!enabled}>
-      {TypesContent[type]}
+    <button className={`key icon-key ${TypesContent[type]}`}
+      onClick={e => onClick?.()}
+      disabled={!enabled}>
+      {type === ControlKeyTypes.upperAll && "U"}
+      {type === ControlKeyTypes.lowerAll && "l"}
     </button>
   );
 }

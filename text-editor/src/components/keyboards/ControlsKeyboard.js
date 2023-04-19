@@ -9,6 +9,8 @@ export default function ControlsKeyboard({
   onBackspaceClick,
   onClearClick,
   onEnterClick,
+  onUpperClick,
+  onLowerClick,
   onUndoClick,
   onRedoClick,
   undoEnabled,
@@ -36,17 +38,27 @@ export default function ControlsKeyboard({
           onClick={onUndoClick}
           enabled={undoEnabled}
         />
+        <ControlKey
+          type={ControlKeyTypes.redo}
+          onClick={onRedoClick}
+          enabled={redoEnabled}
+        />
+      </div>
+      <div>
+        <ControlKey
+          type={ControlKeyTypes.upperAll}
+          onClick={onUpperClick}
+        />
+        <ControlKey
+          type={ControlKeyTypes.lowerAll}
+          onClick={onLowerClick}
+        />
       </div>
       <div>
         <ComboKey
           selected={selectedKeyboard}
           options={keyboards}
           onChange={onChangeKeyboard}
-        />
-        <ControlKey
-          type={ControlKeyTypes.redo}
-          onClick={onRedoClick}
-          enabled={redoEnabled}
         />
       </div>
     </div>
@@ -60,6 +72,8 @@ ControlsKeyboard.propTypes = {
   onBackspaceClick: PropTypes.func,
   onClearClick: PropTypes.func,
   onEnterClick: PropTypes.func,
+  onUpperClick: PropTypes.func,
+  onLowerClick: PropTypes.func,
   onUndoClick: PropTypes.func,
   onRedoClick: PropTypes.func,
   undoEnabled: PropTypes.bool,

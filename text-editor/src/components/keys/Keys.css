@@ -1,0 +1,87 @@
+
+.key {
+  background-color: transparent;
+  border-radius: 0.2em;
+  border: none;
+  width: 1.4em;
+  height: 1.4em;
+  font-size: 22px;
+}
+
+.key:disabled {
+  background-color: rgb(183, 183, 190);
+}
+
+.key:enabled:hover {
+  background-color: rgb(208, 208, 215);
+}
+
+.key:enabled:active {
+  background-color: rgb(183, 183, 190);
+}
+
+.icon-key {
+  background-size: 60% 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.backspace-key {
+  background-image: url("./icons/backspace.png");
+}
+
+.enter-key {
+  background-image: url("./icons/enter-key.png");
+}
+
+.space-key {
+  background-image: url("./icons/space-key.png");
+  background-size: contain;
+  width: 100%;
+}
+
+.slide-left-key {
+  background-image: url("./icons/slide-left-key.png");
+}
+
+.slide-right-key {
+  background-image: url("./icons/slide-right-key.png");
+}
+
+.clear-key {
+  background-image: url("./icons/clear-key.png");
+}
+
+.undo-key {
+  background-image: url("./icons/undo-key.png");
+}
+
+.redo-key {
+  background-image: url("./icons/redo-key.png");
+}
+
+.shift-key {
+  background-image: url("./icons/shift-key.png");
+}
+
+.capslock-key {
+  background-image: url("./icons/capslock-key.png");
+}
+
+.combo-key {
+  background-color: transparent;
+  border-radius: 0.2em;
+  border: none;
+  min-width: 1.4em;
+  min-height: 1.4em;
+  font-size: 22px;
+}
+
+.combo-key:hover {
+  background-color: rgb(208, 208, 215);
+}
+
+.combo-key:active {
+  background-color: rgb(183, 183, 190);
+}
+

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './Keys.css';
 
 export const ShiftMode = {
   normal: 0,
@@ -7,10 +8,16 @@ export const ShiftMode = {
   numModes: 3,
 };
 
+const ShiftClasses = [
+  "shift-key",
+  "shift-key",
+  "capslock-key",
+]
+
 export default function ShiftKey({ shiftMode = ShiftMode.normal, onClick }) {
   return (
-    <button onClick={e => onClick?.()}>
-      {['^', '^^', 'CL'][shiftMode]}
+    <button className={`key icon-key ${ShiftClasses[shiftMode]}`}
+      onClick={e => onClick?.()}>
     </button>
   );
 }
