@@ -6,10 +6,12 @@ import BoardComponent from "../components/BoardComponent";
  * @property disabled
  * @property onStep
  * @property playerNmae
+ * @property handleEndGame
+ * @property handleLeave
  */
 class Board extends Component{
     state={
-        n: 0,
+        n: 50,
         steps: 0,
         status: 'playing'
     };
@@ -33,18 +35,28 @@ class Board extends Component{
             default:
                 break;
         }
+        
+        this.setState({n, steps});
         if (n === 100) {
-            this.props.handleEndGame()
+            this.handleEndGame(this.props.playerName, steps);
             return;
         }
-        this.setState({n, steps});
         this.props.onStep();
     }
 
-    handleReset = () => {
-        this.setState({n: 0, steps: 0, status:'playing'})
+    handleEndGame = () => {
+        this.setState({status: 'end_game'});
+        this.props.handleEndGame(this.props.playerName, this.state.steps);
     }
 
+    handleRestart = () => {
+        this.setState({n: 0, steps: 0, status:'playing'});
+        this.props.onStep();
+    }
+
+    handleLeave = () => {
+        this.props.handleLeave(this.props.playerName);
+    }
     
     render(){
         return (<BoardComponent 
@@ -54,7 +66,8 @@ class Board extends Component{
                 handleSub={() => this.handleStep('sub')}
                 handleMult={() => this.handleStep('mult')}
                 handleDiv={() => this.handleStep('div')}
-                handleReset={(this.handleReset)}
+                handleRestart={(this.handleRestart)}
+                handleLeave={(this.handleLeave)}
                 {...this.state}/>); 
     }
 }

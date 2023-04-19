@@ -4,6 +4,7 @@ import Register from './components/Register';
 import { Component } from 'react';
 import { Container, Button, Card } from 'react-bootstrap';
 import GameLauncher from './containers/GameLauncherContainer';
+import Stats from './containers/StatsContainer'
 
 class App extends Component{
   state = {
@@ -12,19 +13,26 @@ class App extends Component{
   }
 
   handleAddPlayer = (name) => {
-    let errors=this.state.errors;
-    if (this.state.players.find((p) => p === name) === name){
+    if (this.state.players.find((p) => p.name === name) !== undefined){
       return 'name already exist! please insert a diffrent name';
     }
     let players = this.state.players;
-    players.push(name);
+    players.push({name, scores: []});
     this.setState({players});
     return '';
   }
 
-  handleRemovePlayer = (name) => {
-    let players = this.players.filter(name);
+  handleAddScore = (name, score) => {
+    var players = this.state.players;
+    players.find((p) => p.name === name).scores.push(score);
     this.setState({players});
+  }
+  
+  handleRemovePlayer = (name) => {
+    var players = this.state.players;
+    players = players.filter(p => p.name !== name);
+    var status = players.length > 0? 'game': 'registering';
+    this.setState({players, status});
   }
 
   handleDoneRegistering = () => {
@@ -39,8 +47,18 @@ class App extends Component{
             handleAddPlayer={(name) => this.handleAddPlayer(name)}
             handleDoneRegistering={this.handleDoneRegistering}/>}
           {this.state.status === 'game' &&
-            <GameLauncher
-            players={this.state.players}/>}
+          <div style={{display:'flex', flexDirection: 'column'}}>
+            <div>
+              <GameLauncher
+              players={this.state.players.map(p => p.name)}
+              handleAddScore={this.handleAddScore}
+              handleLeave={this.handleRemovePlayer}/>
+            </div>
+            <div>
+              <Stats
+              players={this.state.players}/> 
+            </div>
+          </div>}
       </Container>);
     }
 }

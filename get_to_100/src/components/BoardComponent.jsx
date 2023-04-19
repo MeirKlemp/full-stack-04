@@ -12,26 +12,26 @@ function BoardComponent(props) {
           <Card.Text>{props.n}</Card.Text>
           {props.status === 'playing' && (
             <>
-              <Button variant="primary" className="me-2" disabled={props.disabled} onClick={props.handleAdd}>
+              <Button variant="primary mt-5" className="me-2" disabled={props.disabled} onClick={props.handleAdd}>
                 Add 1
               </Button>
-              <Button variant="primary" className="me-2" disabled={props.disabled} onClick={props.handleSub}>
+              <Button variant="primary mt-5" className="me-2" disabled={props.disabled} onClick={props.handleSub}>
                 Subtract 1
               </Button>
-              <Button variant="primary" className="me-2" disabled={props.disabled} onClick={props.handleMult}>
+              <Button variant="primary mt-5" className="me-2" disabled={props.disabled} onClick={props.handleMult}>
                 Multiply by 2
               </Button>
-              <Button variant="primary" className="me-2" disabled={props.disabled} onClick={props.handleDiv}>
+              <Button variant="primary mt-5" className="me-2" disabled={props.disabled} onClick={props.handleDiv}>
                 Divide by 2
               </Button>
             </>
           )}
-          {props.status === 'win' && (
-            <Card.Text className="text-success">You won in {props.steps} moves!</Card.Text>
-          )}
-          {props.status === 'lose' && (
-            <Card.Text className="text-danger">You lost. Try again!</Card.Text>
-          )}
+          {props.status === 'end_game' &&
+          <>
+            <Card.Text>you get to 100 with {props.steps} steps</Card.Text>
+            <Button onClick={props.handleRestart} className='primary mt-5'>start a new game</Button>
+            <Button onClick={props.handleLeave} className='primary mt-5'>leave</Button>
+          </>}
         </Card.Body>
       </Card>
       {/* <div className="text-center mt-3">
