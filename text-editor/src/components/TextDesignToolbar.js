@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import ColorInput from './common/ColorInput';
+import IntegerInput from './common/IntegerInput';
+import './TextDesignToolbar.css';
 
 export default function TextDesignToolbar({
   style,
@@ -8,30 +10,19 @@ export default function TextDesignToolbar({
   maxFontSize = 400,
 }) {
   const handleChange = newStyle => onChange?.({...style, ...newStyle});
-  const handleFontSizeChange = value => {
-    if (isNaN(value)) return;
-    const boundedValue = Math.max(minFontSize, Math.min(maxFontSize, value));
-    handleChange({fontSize: boundedValue});
-  };
 
   return (
-    <div style={{display: "flex"}}>
+    <div className="text-design-toolbar">
       <ColorInput value={style.color}
         onChange={color => handleChange({color: color})}
         placeholder="Text Color"
       />
-      <button
-        onClick={e => handleFontSizeChange(parseInt(style.fontSize) - 1)}>
-        -
-      </button>
-      <input type="text"
+      <IntegerInput
         value={style.fontSize}
-        onChange={e => handleFontSizeChange(parseInt(e.target.value))}
+        onChange={value => handleChange({fontSize: value})}
+        minValue={minFontSize}
+        maxValue={maxFontSize}
       />
-      <button
-        onClick={e => handleFontSizeChange(parseInt(style.fontSize) + 1)}>
-        +
-      </button>
       <select value={style.fontFamily}
           onChange={e => handleChange({fontFamily: e.target.value})}>
         <option value="arial">Arial</option>

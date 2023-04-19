@@ -5,18 +5,18 @@
 }
 
 .color-input-color {
-  border: 1px solid black;
+  border: 1px solid #8f8f9d;
   border-right: none;
-  border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
-  min-width: 1em;
+  border-top-left-radius: 0.2em;
+  border-bottom-left-radius: 0.2em;
+  min-width: 1.2em;
   font-size: inherit;
 }
 
 .color-input-input {
-  border: 1px solid;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
+  border: 1px solid #8f8f9d;
+  border-top-right-radius: 0.2em;
+  border-bottom-right-radius: 0.2em;
   outline: none;
   width: 6.5em;
   font-size: inherit;
