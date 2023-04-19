@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import ColorInput from './common/ColorInput';
 import IntegerInput from './common/IntegerInput';
+import CheckboxButton from './common/CheckboxButton';
 import './TextDesignToolbar.css';
 
 export default function TextDesignToolbar({
@@ -36,33 +37,21 @@ export default function TextDesignToolbar({
         <option value="courier">Courier</option>
         <option value="brush">Brush</option>
       </select>
-      <div className="checkbox-button bold-checkbox">
-        <label>
-          <input type="checkbox"
-              checked={style.fontWeight === "bold"}
-              onChange={e => handleChange(
-                {fontWeight: e.target.checked ? "bold" : "normal"})}/>
-          <span>B</span>
-        </label>
-      </div>
-      <div className="checkbox-button italic-checkbox">
-        <label>
-          <input type="checkbox"
-              checked={style.fontStyle === "italic"}
-              onChange={e => handleChange(
-                {fontStyle: e.target.checked ? "italic" : "normal"})}/>
-          <span>I</span>
-        </label>
-      </div>
-      <div className="checkbox-button underline-checkbox">
-        <label>
-          <input type="checkbox"
-              checked={style.textDecoration === "underline"}
-              onChange={e => handleChange(
-                {textDecoration: e.target.checked ? "underline" : null})}/>
-          <span>U</span>
-        </label>
-      </div>
+      <CheckboxButton className="bold-checkbox"
+        checked={style.fontWeight === "bold"}
+        onChange={checked => handleChange(
+          {fontWeight: checked ? "bold" : "normal"})}
+      >B</CheckboxButton>
+      <CheckboxButton className="italic-checkbox"
+        checked={style.fontStyle === "italic"}
+        onChange={checked => handleChange(
+          {fontStyle: checked ? "italic" : "normal"})}
+      >I</CheckboxButton>
+      <CheckboxButton className="underline-checkbox"
+        checked={style.textDecoration === "underline"}
+        onChange={checked => handleChange(
+          {textDecoration: checked ? "underline" : null})}
+      >U</CheckboxButton>
     </div>
   );
 }
